@@ -1,11 +1,15 @@
 
-from http.server import HTTPServer, SimpleHTTPRequestHandler
+from flask import Flask, send_from_directory
 
-def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler):
-    server_address = ('0.0.0.0', 8000)
-    httpd = server_class(server_address, handler_class)
-    print('Starting server on port 8000...')
-    httpd.serve_forever()
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return send_from_directory('.', 'index.html')
+
+@app.route('/<path:path>')
+def serve_file(path):
+    return send_from_directory('.', path)
 
 if __name__ == '__main__':
-    run()
+    app.run(host='0.0.0.0', port=8080)
