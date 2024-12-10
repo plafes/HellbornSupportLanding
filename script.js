@@ -87,12 +87,15 @@ document.addEventListener("DOMContentLoaded", function() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
+                paragraphObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.3 });
+    }, { 
+        threshold: 0.3,
+        rootMargin: '-50px'
+    });
 
-    const laterParagraphs = document.querySelectorAll('.paragraph-2, .paragraph-3');
-    laterParagraphs.forEach(paragraph => {
+    document.querySelectorAll('.paragraph-2, .paragraph-3').forEach(paragraph => {
         paragraphObserver.observe(paragraph);
     });
 });
