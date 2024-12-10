@@ -47,6 +47,28 @@ header::before {
     display: flex;
     align-items: center;
     pointer-events: none;
+    position: relative;
+}
+
+@keyframes ripple {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0.5;
+    }
+    100% {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+}
+
+.ripple {
+    position: absolute;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    animation: ripple 1s linear;
+    pointer-events: none;
 }
 
 .title-image {
