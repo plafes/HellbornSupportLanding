@@ -73,11 +73,13 @@ document.addEventListener("DOMContentLoaded", function() {
     setInterval(showSlides, 3000);
 
     setTimeout(() => {
-        const elements = [...document.querySelectorAll('.hero-description p'), document.querySelector('.content-slider')];
+        const elements = [document.querySelector('.paragraph-1'), document.querySelector('.content-slider'), document.querySelector('.paragraph-2'), document.querySelector('.paragraph-3')];
         elements.forEach((el, index) => {
-            setTimeout(() => {
-                el.classList.add('active');
-            }, 100 + (index * 100));
+            if (el) {
+                setTimeout(() => {
+                    el.classList.add('active');
+                }, 100 + (index * 100));
+            }
         });
     }, 100);
 });
