@@ -508,6 +508,31 @@ footer::before {
   100% { transform: translateY(0); }
 }
 
+/* Блокировка горизонтальной ориентации */
+@media screen and (orientation: landscape) and (max-width: 900px) {
+    body::before {
+        content: "Пожалуйста, переверните устройство в вертикальное положение";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: black;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+        z-index: 9999;
+        font-size: 1.2rem;
+    }
+
+    .hero, header, footer {
+        display: none;
+    }
+}
+
 /* Медиа-запрос для мобильных устройств */
 @media (max-width: 768px) {
     .logo::before, .teppo-logo::before,
