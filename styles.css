@@ -484,6 +484,20 @@ footer::before {
         background: rgba(0, 0, 0, 0.5);
     }
 
+    .content-slider {
+        max-width: 100%;
+        margin: 1rem 0;
+    }
+
+    .slider-container {
+        padding-top: 75%; /* Увеличиваем соотношение сторон для мобильных */
+    }
+
+    .slider-arrow {
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+
     .footer-content {
         padding: 0.5rem 1rem;
     }
