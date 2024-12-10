@@ -558,7 +558,7 @@ footer::before {
     }
 
     .title-image {
-        height: 45px;
+        height: 60px;
         margin: 0 auto;
     }
 
@@ -567,11 +567,11 @@ footer::before {
     }
 
     .teppo-logo {
-        height: 30px;
+        height: 45px;
     }
     
     .logo {
-        height: 40px;
+        height: 55px;
     }
 
     .typewriter {
