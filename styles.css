@@ -43,10 +43,9 @@ header::before {
     gap: 2rem;
 }
 
-.logo-group {
+.logo-group-left, .logo-group-right {
     display: flex;
     align-items: center;
-    gap: 10px;
     pointer-events: none;
 }
 
