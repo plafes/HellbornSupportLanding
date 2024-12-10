@@ -112,13 +112,71 @@ header::before {
     }
 }
 
+@keyframes ripple {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0.7;
+        border: 2px solid rgba(255, 255, 255, 0.8);
+    }
+    100% {
+        width: 200px;
+        height: 200px;
+        opacity: 0;
+        border: 2px solid rgba(255, 255, 255, 0);
+    }
+}
+
 .ripple {
     position: absolute;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
     border: 2px solid #fff;
     border-radius: 50%;
-    animation: ripple 1s linear;
+    animation: ripple 1s ease-out;
     pointer-events: none;
     z-index: 102;
+}
+
+@keyframes rotating-arrows {
+    0% {
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.logo::before, .teppo-logo::before {
+    content: '⟲';
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 24px;
+    animation: rotating-arrows 2s infinite;
+    z-index: 103;
+}
+
+.logo::after, .teppo-logo::after {
+    content: '⟳';
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 24px;
+    animation: rotating-arrows 2s infinite;
+    animation-delay: 1s;
+    z-index: 103;
 }
 
 .title-image {
