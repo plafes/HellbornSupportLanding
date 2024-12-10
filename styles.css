@@ -214,8 +214,8 @@ header::before {
     margin: 2rem auto;
     overflow: hidden;
     border-radius: 10px;
-    opacity: 0;
-    transform: translateX(-100%);
+    opacity: 1;
+    transform: translateX(0);
     transition: all 0.8s ease-out;
 }
 
@@ -489,6 +489,8 @@ footer::before {
         max-width: 100%;
         margin: 1rem 0;
         display: block;
+        opacity: 1;
+        transform: none;
     }
 
     .slider-container {
