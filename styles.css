@@ -493,6 +493,12 @@ footer::before {
     }
 }
 
+@keyframes wave {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
 /* Медиа-запрос для мобильных устройств */
 @media (max-width: 768px) {
     .logo::before, .teppo-logo::before,
@@ -501,7 +507,7 @@ footer::before {
     }
     
     .logo, .teppo-logo {
-        animation: pulse 2s infinite;
+        animation: pulse 2s infinite, wave 4s infinite;
     }
 
     .logo:active, .teppo-logo:active,
