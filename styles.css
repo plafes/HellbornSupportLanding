@@ -63,7 +63,7 @@ header::before {
 }
 
 .logo {
-    height: 95px;
+    height: 110px;
     object-fit: contain;
     filter: brightness(0.9);
     pointer-events: auto;
