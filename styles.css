@@ -1,0 +1,275 @@
+/* Основные стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+/* Шапка */
+header {
+    background-color: transparent;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    z-index: -1;
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 2rem;
+    gap: 2rem;
+}
+
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.title-image {
+    height: 90px;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.logo, .teppo-logo {
+    height: 80px;
+    object-fit: contain;
+    filter: brightness(0.9);
+    pointer-events: auto;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 120px;
+    padding-bottom: 100px;
+    overflow: visible;
+    background-color: #000;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Слайдшоу */
+.slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Стили для текста */
+.hero-description {
+    margin-top: 3rem;
+    padding: 0 2rem;
+    max-width: 800px;
+    margin-left: 0;
+}
+
+.hero-description p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #ffffff;
+    text-align: left;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 0.8s ease-out;
+    position: relative;
+    padding: 1rem 1.5rem;
+}
+
+.hero-description p::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.hero-description p.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.hero-description p.active::before {
+    opacity: 1;
+}
+
+/* Задержки для каждого параграфа */
+.paragraph-1.active {
+    transition-delay: 3s;
+}
+
+.paragraph-2.active {
+    transition-delay: 4s;
+}
+
+.paragraph-3.active {
+    transition-delay: 4.5s;
+}
+
+/* Стили для печатающегося заголовка */
+.typewriter-container {
+    flex: 1;
+    text-align: center;
+}
+
+.typewriter {
+    display: inline-block;
+    font-size: 1.8rem;
+    color: #fff;
+    margin: 0 auto;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end) forwards;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 800px }
+}
+
+/* CSS переменные */
+:root {
+    --primary-red: #8b0000;
+    --dark-bg: #000000;
+}
+
+/* Футер */
+footer {
+    background-color: transparent;
+    padding: 2rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    z-index: -1;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 0 2rem;
+}
+
+.social-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--primary-red);
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .typewriter {
+        font-size: 1.4rem;
+        min-width: auto;
+        margin: 0.5rem 0;
+    }
+} 
