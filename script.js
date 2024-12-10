@@ -26,18 +26,30 @@ function showSlides() {
 document.addEventListener("DOMContentLoaded", function() {
     // Popup functionality
     const logo = document.querySelector('.logo');
+    const teppoLogo = document.querySelector('.teppo-logo');
     const popup = document.querySelector('.social-popup');
+    const teppoPopup = document.querySelector('.teppo-popup');
 
     if (window.innerWidth <= 768) {
         logo.style.pointerEvents = 'auto';
+        teppoLogo.style.pointerEvents = 'auto';
+
         logo.addEventListener('click', () => {
             popup.classList.toggle('active');
+            teppoPopup.classList.remove('active');
         });
 
-        popup.addEventListener('click', (e) => {
-            if (e.target === popup) {
-                popup.classList.remove('active');
-            }
+        teppoLogo.addEventListener('click', () => {
+            teppoPopup.classList.toggle('active');
+            popup.classList.remove('active');
+        });
+
+        [popup, teppoPopup].forEach(p => {
+            p.addEventListener('click', (e) => {
+                if (e.target === p) {
+                    p.classList.remove('active');
+                }
+            });
         });
     }
     // Показываем первый слайд сразу

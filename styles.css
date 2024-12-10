@@ -277,6 +277,11 @@ footer::before {
     z-index: 1000;
 }
 
+.teppo-popup .popup-content {
+    right: 20px;
+    left: auto;
+}
+
 .popup-content {
     position: fixed;
     top: 100px;
