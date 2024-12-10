@@ -491,12 +491,21 @@ footer::before {
         display: block;
         opacity: 0;
         transform: translateX(-100%);
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .content-slider.active {
+        opacity: 1;
+        transform: translateX(0);
     }
 
     .slider-container {
         padding-top: 75%;
         display: block;
         position: relative;
+        width: 100%;
     }
 
     .slider-image {
