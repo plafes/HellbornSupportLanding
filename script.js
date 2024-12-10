@@ -39,7 +39,13 @@ function initializeContentSlider() {
     // Добавляем обработчик для открытия изображений в полный экран
     sliderImages.forEach(img => {
         img.addEventListener('click', () => {
-            window.open(img.src, '_blank');
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+            } else {
+                img.requestFullscreen().catch(err => {
+                    window.open(img.src, '_blank');
+                });
+            }
         });
         img.style.cursor = 'pointer';
     });
