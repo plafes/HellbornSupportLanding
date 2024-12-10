@@ -18,7 +18,28 @@ function showSlides() {
     slides[slideIndex - 1].classList.add("active");
 }
 
+function initializeContentSlider() {
+    const sliderImages = document.querySelectorAll('.slider-image');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        sliderImages.forEach(img => img.classList.remove('active'));
+        currentSlide = (index + sliderImages.length) % sliderImages.length;
+        sliderImages[currentSlide].classList.add('active');
+    }
+
+    if (prevButton && nextButton) {
+        prevButton.addEventListener('click', () => showSlide(currentSlide - 1));
+        nextButton.addEventListener('click', () => showSlide(currentSlide + 1));
+    }
+
+    setInterval(() => showSlide(currentSlide + 1), 5000);
+}
+
 document.addEventListener("DOMContentLoaded", function() {
+    initializeContentSlider();
     const logo = document.querySelector('.logo');
     const teppoLogo = document.querySelector('.teppo-logo');
     const popup = document.querySelector('.social-popup');
