@@ -264,8 +264,12 @@ footer::before {
         gap: 15px;
     }
 
-    .logo, .teppo-logo {
+    .teppo-logo {
         height: 40px;
+    }
+    
+    .logo {
+        height: 60px;
     }
 
     .typewriter {
@@ -338,8 +342,12 @@ footer::before {
             height: 40px;
         }
 
-        .logo, .teppo-logo {
+        .teppo-logo {
             height: 35px;
+        }
+        
+        .logo {
+            height: 50px;
         }
 
         .typewriter {
