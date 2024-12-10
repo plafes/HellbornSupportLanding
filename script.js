@@ -118,13 +118,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const videoIframe = document.querySelector('.video-container iframe');
 
     videoContainer.addEventListener('click', () => {
-        if (videoIframe.requestFullscreen) {
-            videoIframe.requestFullscreen();
-        } else if (videoIframe.webkitRequestFullscreen) {
-            videoIframe.webkitRequestFullscreen();
-        } else if (videoIframe.msRequestFullscreen) {
-            videoIframe.msRequestFullscreen();
-        }
+        const videoUrl = videoIframe.src;
+        window.open(videoUrl, '_blank', 'fullscreen=yes');
     });
 });
 
