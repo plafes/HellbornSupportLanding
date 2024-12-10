@@ -60,6 +60,11 @@ header::before {
     object-fit: contain;
     filter: brightness(0.9);
     pointer-events: auto;
+    transition: transform 0.3s ease;
+}
+
+.teppo-logo:hover, .teppo-logo:active {
+    transform: scale(1.1);
 }
 
 .logo {
@@ -67,6 +72,11 @@ header::before {
     object-fit: contain;
     filter: brightness(0.9);
     pointer-events: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover, .logo:active {
+    transform: scale(1.1);
 }
 
 /* Hero Section */
@@ -252,11 +262,12 @@ footer::before {
 .social-links a {
     color: #fff;
     font-size: 1.5rem;
-    transition: color 0.3s;
+    transition: color 0.3s, transform 0.3s ease;
 }
 
-.social-links a:hover {
+.social-links a:hover, .social-links a:active {
     color: var(--primary-red);
+    transform: scale(1.2);
 }
 
 /* Социальное всплывающее окно */
