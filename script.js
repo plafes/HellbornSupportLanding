@@ -72,16 +72,27 @@ document.addEventListener("DOMContentLoaded", function() {
     
     setInterval(showSlides, 3000);
 
-    setTimeout(() => {
-        const elements = [document.querySelector('.paragraph-1'), document.querySelector('.content-slider')];
-        elements.forEach((el, index) => {
-            if (el) {
+    const firstGroupObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
                 setTimeout(() => {
-                    el.classList.add('active');
-                }, 100 + (index * 100));
+                    entry.target.classList.add('active');
+                }, 100);
+            } else {
+                entry.target.classList.remove('active');
             }
         });
-    }, 100);
+    }, { 
+        threshold: 0.1,
+        rootMargin: '0px'
+    });
+
+    const firstElements = [document.querySelector('.paragraph-1'), document.querySelector('.content-slider')];
+    firstElements.forEach(el => {
+        if (el) {
+            firstGroupObserver.observe(el);
+        }
+    });
 
     const paragraphObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
