@@ -30,9 +30,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const popup = document.querySelector('.social-popup');
     const teppoPopup = document.querySelector('.teppo-popup');
 
-    if (window.innerWidth <= 768) {
-        logo.style.pointerEvents = 'auto';
-        teppoLogo.style.pointerEvents = 'auto';
+    logo.style.pointerEvents = 'auto';
+    teppoLogo.style.pointerEvents = 'auto';
 
         logo.addEventListener('click', (e) => {
             const ripple = document.createElement('div');
