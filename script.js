@@ -22,6 +22,8 @@ function initializeContentSlider() {
     const prevButton = document.querySelector('.prev');
     const nextButton = document.querySelector('.next');
     let currentSlide = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
 
     function showSlide(index) {
         sliderImages.forEach(img => img.classList.remove('active'));
@@ -29,10 +31,30 @@ function initializeContentSlider() {
         sliderImages[currentSlide].classList.add('active');
     }
 
+    const handleTouchStart = (e) => {
+        touchStartX = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = (e) => {
+        touchEndX = e.changedTouches[0].clientX;
+        const difference = touchStartX - touchEndX;
+        if (Math.abs(difference) > 50) {
+            if (difference > 0) {
+                showSlide(currentSlide + 1);
+            } else {
+                showSlide(currentSlide - 1);
+            }
+        }
+    };
+
     if (prevButton && nextButton) {
         prevButton.addEventListener('click', () => showSlide(currentSlide - 1));
         nextButton.addEventListener('click', () => showSlide(currentSlide + 1));
     }
+
+    const slider = document.querySelector('.content-slider');
+    slider.addEventListener('touchstart', handleTouchStart);
+    slider.addEventListener('touchend', handleTouchEnd);
 
     setInterval(() => showSlide(currentSlide + 1), 5000);
 
@@ -135,12 +157,34 @@ document.addEventListener("DOMContentLoaded", function() {
     const prevVideo = document.querySelector('.prev-video');
     const nextVideo = document.querySelector('.next-video');
     let currentVideo = 0;
+    let videoTouchStartX = 0;
+    let videoTouchEndX = 0;
 
     function showVideo(index) {
         videoSlides.forEach(slide => slide.classList.remove('active'));
         currentVideo = (index + videoSlides.length) % videoSlides.length;
         videoSlides[currentVideo].classList.add('active');
     }
+
+    const handleVideoTouchStart = (e) => {
+        videoTouchStartX = e.touches[0].clientX;
+    };
+
+    const handleVideoTouchEnd = (e) => {
+        videoTouchEndX = e.changedTouches[0].clientX;
+        const difference = videoTouchStartX - videoTouchEndX;
+        const iframes = document.querySelectorAll('.video-slide iframe');
+        if (Math.abs(difference) > 50 && !Array.from(iframes).some(iframe => iframe.src.includes('&autoplay=1'))) {
+            if (difference > 0) {
+                showVideo(currentVideo + 1);
+            } else {
+                showVideo(currentVideo - 1);
+            }
+        }
+    };
+
+    videoContainer.addEventListener('touchstart', handleVideoTouchStart);
+    videoContainer.addEventListener('touchend', handleVideoTouchEnd);
 
     prevVideo.addEventListener('click', () => {
         const iframes = document.querySelectorAll('.video-slide iframe');
