@@ -148,6 +148,14 @@ document.addEventListener("DOMContentLoaded", function() {
             window.open(activeVideo.src, '_blank', 'fullscreen=yes');
         }
     });
+
+    // Автоматическое переключение видео
+    setInterval(() => {
+        const iframes = document.querySelectorAll('.video-slide iframe');
+        if (!Array.from(iframes).some(iframe => iframe.src.includes('&autoplay=1'))) {
+            showVideo(currentVideo + 1);
+        }
+    }, 2000);
 });
 
 window.addEventListener('scroll', function() {
