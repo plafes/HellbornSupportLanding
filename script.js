@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
     setInterval(showSlides, 3000);
 
     setTimeout(() => {
-        const elements = [document.querySelector('.paragraph-1'), document.querySelector('.content-slider'), document.querySelector('.paragraph-2'), document.querySelector('.paragraph-3')];
+        const elements = [document.querySelector('.paragraph-1'), document.querySelector('.content-slider')];
         elements.forEach((el, index) => {
             if (el) {
                 setTimeout(() => {
@@ -82,6 +82,19 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }, 100);
+
+    const paragraphObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.3 });
+
+    const laterParagraphs = document.querySelectorAll('.paragraph-2, .paragraph-3');
+    laterParagraphs.forEach(paragraph => {
+        paragraphObserver.observe(paragraph);
+    });
 });
 
 window.addEventListener('scroll', function() {
