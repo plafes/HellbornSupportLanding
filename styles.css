@@ -367,7 +367,9 @@ footer::before {
 
 .popup-social-links {
     display: flex;
+    flex-direction: column;
     gap: 2rem;
+    padding: 1rem 0.5rem;
 }
 
 .popup-social-links a {
