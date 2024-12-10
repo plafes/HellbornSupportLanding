@@ -286,6 +286,31 @@ header::before {
     transition-delay: 0.2s;
 }
 
+.video-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    position: relative;
+    padding-top: 56.25%;
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 0.8s ease-out;
+}
+
+.video-container.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
 .paragraph-3.active {
     transition-delay: 0.3s;
 }

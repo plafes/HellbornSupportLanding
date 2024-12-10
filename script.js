@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function() {
         rootMargin: '0px'
     });
 
-    const firstElements = [document.querySelector('.paragraph-1'), document.querySelector('.content-slider')];
+    const firstElements = [document.querySelector('.paragraph-1'), document.querySelector('.content-slider'), document.querySelector('.video-container')];
     firstElements.forEach(el => {
         if (el) {
             firstGroupObserver.observe(el);
