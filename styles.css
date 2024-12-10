@@ -48,6 +48,12 @@ header::before {
     align-items: center;
     pointer-events: none;
     position: relative;
+    z-index: 101;
+}
+
+.logo, .teppo-logo {
+    position: relative;
+    z-index: 101;
 }
 
 @keyframes arrow-animation {
@@ -111,6 +117,7 @@ header::before {
     border-radius: 50%;
     animation: ripple 1s linear;
     pointer-events: none;
+    z-index: 102;
 }
 
 .title-image {
