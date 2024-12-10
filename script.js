@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (window.innerWidth <= 768) {
         logo.style.pointerEvents = 'auto';
         logo.addEventListener('click', () => {
-            popup.classList.add('active');
+            popup.classList.toggle('active');
         });
 
         popup.addEventListener('click', (e) => {
