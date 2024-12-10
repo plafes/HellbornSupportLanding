@@ -35,6 +35,14 @@ function initializeContentSlider() {
     }
 
     setInterval(() => showSlide(currentSlide + 1), 5000);
+
+    // Добавляем обработчик для открытия изображений в полный экран
+    sliderImages.forEach(img => {
+        img.addEventListener('click', () => {
+            window.open(img.src, '_blank');
+        });
+        img.style.cursor = 'pointer';
+    });
 }
 
 document.addEventListener("DOMContentLoaded", function() {

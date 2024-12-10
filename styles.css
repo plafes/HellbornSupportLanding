@@ -256,6 +256,11 @@ header::before {
 
 .slider-image.active {
     opacity: 1;
+    transition: transform 0.3s ease;
+}
+
+.slider-image.active:hover {
+    transform: scale(1.02);
 }
 
 .slider-arrow {
