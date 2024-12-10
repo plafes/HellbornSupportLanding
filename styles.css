@@ -160,16 +160,23 @@ header::before {
     }
 }
 
-.mobile-bg {
+.mobile-bg,
+.mobile-only {
     display: none;
 }
 
+.desktop-only {
+    display: block;
+}
+
 @media (max-width: 768px) {
-    .desktop-bg {
+    .desktop-bg,
+    .desktop-only {
         display: none;
     }
     
-    .mobile-bg {
+    .mobile-bg,
+    .mobile-only {
         display: block;
     }
 }
