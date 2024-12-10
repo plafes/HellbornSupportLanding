@@ -491,9 +491,6 @@ footer::before {
         border-radius: 10px;
         overflow: hidden;
         display: block;
-        opacity: 0;
-        transform: translateX(-100%);
-        transition: all 0.8s ease-out;
     }
 
     .slider-container {
