@@ -1,4 +1,3 @@
-
 let slideIndex = 0;
 const slides = document.getElementsByClassName("slide");
 
@@ -114,6 +113,19 @@ document.addEventListener("DOMContentLoaded", function() {
             paragraphObserver.observe(paragraph);
         });
     }, 500);
+
+    const videoContainer = document.querySelector('.video-container');
+    const videoIframe = document.querySelector('.video-container iframe');
+
+    videoContainer.addEventListener('click', () => {
+        if (videoIframe.requestFullscreen) {
+            videoIframe.requestFullscreen();
+        } else if (videoIframe.webkitRequestFullscreen) {
+            videoIframe.webkitRequestFullscreen();
+        } else if (videoIframe.msRequestFullscreen) {
+            videoIframe.msRequestFullscreen();
+        }
+    });
 });
 
 window.addEventListener('scroll', function() {

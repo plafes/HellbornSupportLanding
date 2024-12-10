@@ -292,13 +292,14 @@ header::before {
 
 .video-container {
     width: 100%;
-    max-width: 800px;
+    max-width: 450px;
     margin: 2rem auto;
     position: relative;
-    padding-top: 56.25%;
+    padding-top: 177.78%;
     opacity: 0;
     transform: translateX(-100px);
     transition: all 0.8s ease-out;
+    cursor: pointer;
 }
 
 .video-container.active {
