@@ -278,6 +278,10 @@ header::before {
     transition-delay: 0.1s;
 }
 
+.paragraph-2 {
+    margin-top: 100vh;
+}
+
 .paragraph-2.active {
     transition-delay: 0.2s;
 }
