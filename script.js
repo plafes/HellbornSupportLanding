@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!Array.from(iframes).some(iframe => iframe.src.includes('&autoplay=1'))) {
             showVideo(currentVideo + 1);
         }
-    }, 2000);
+    }, 3000);
 });
 
 window.addEventListener('scroll', function() {
