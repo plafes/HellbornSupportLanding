@@ -179,27 +179,7 @@ header::before {
     transition-delay: 4.5s;
 }
 
-/* Стили для печатающегося заголовка */
-.typewriter-container {
-    flex: 1;
-    text-align: center;
-}
 
-.typewriter {
-    display: inline-block;
-    font-size: 1.8rem;
-    color: #fff;
-    margin: 0 auto;
-    width: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    animation: typing 3.5s steps(40, end) forwards;
-}
-
-@keyframes typing {
-    from { width: 0 }
-    to { width: 800px }
-}
 
 /* CSS переменные */
 :root {
