@@ -32,12 +32,14 @@ document.addEventListener("DOMContentLoaded", function() {
     // Запускаем автоматическую смену каждые 3 секунды
     setInterval(showSlides, 3000);
 
-    // Активация параграфов почти сразу после загрузки
+    // Активация параграфов с небольшой задержкой
     setTimeout(() => {
-        document.querySelectorAll('.hero-description p').forEach(p => {
-            p.classList.add('active');
+        document.querySelectorAll('.hero-description p').forEach((p, index) => {
+            setTimeout(() => {
+                p.classList.add('active');
+            }, 500 + (index * 200));
         });
-    }, 40); // Уменьшили до 40 миллисекунд
+    }, 500);
 
     // Анимация текста
     const typewriter = document.querySelector('.typewriter');
@@ -68,4 +70,4 @@ const observer = new IntersectionObserver(function(entries, observer) {
 
 sections.forEach(section => {
     observer.observe(section);
-}); 
+});
