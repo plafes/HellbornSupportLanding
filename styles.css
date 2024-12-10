@@ -313,8 +313,32 @@ footer::before {
     display: block;
 }
 
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        filter: brightness(0.9);
+    }
+    50% {
+        transform: scale(1.1);
+        filter: brightness(1);
+    }
+    100% {
+        transform: scale(1);
+        filter: brightness(0.9);
+    }
+}
+
 /* Медиа-запрос для мобильных устройств */
 @media (max-width: 768px) {
+    .logo, .teppo-logo {
+        animation: pulse 2s infinite;
+    }
+
+    .logo:active, .teppo-logo:active,
+    .social-popup.active ~ .logo,
+    .social-popup.active ~ .teppo-logo {
+        animation: none;
+    }
     .header-container {
         flex-direction: row;
         padding: 1rem;
