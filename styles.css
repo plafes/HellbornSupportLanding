@@ -489,8 +489,8 @@ footer::before {
         max-width: 100%;
         margin: 1rem 0;
         display: block;
-        opacity: 1;
-        transform: none;
+        opacity: 0;
+        transform: translateX(-100%);
     }
 
     .slider-container {
