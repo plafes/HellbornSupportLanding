@@ -643,11 +643,11 @@ footer::before {
     }
 
     .footer-content {
-        padding: 0.3rem 1rem;
+        padding: 0.1rem 1rem;
     }
 
     footer {
-        padding: 1rem;
+        padding: 0.5rem;
     }
 
     .contact-info h3 {
