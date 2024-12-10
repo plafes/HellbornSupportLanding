@@ -48,12 +48,13 @@ header::before {
     align-items: center;
     pointer-events: none;
     position: relative;
-    z-index: 101;
+    z-index: 1;
 }
 
 .logo, .teppo-logo {
     position: relative;
-    z-index: 101;
+    z-index: 2;
+    cursor: pointer;
 }
 
 @keyframes arrow-animation {
