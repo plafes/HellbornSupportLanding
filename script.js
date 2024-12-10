@@ -89,7 +89,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 setTimeout(() => {
                     entry.target.classList.add('active');
                 }, 100);
-                paragraphObserver.unobserve(entry.target);
+            } else {
+                entry.target.classList.remove('active');
             }
         });
     }, { 
