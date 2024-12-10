@@ -86,18 +86,22 @@ document.addEventListener("DOMContentLoaded", function() {
     const paragraphObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('active');
+                setTimeout(() => {
+                    entry.target.classList.add('active');
+                }, 100);
                 paragraphObserver.unobserve(entry.target);
             }
         });
     }, { 
-        threshold: 0.3,
-        rootMargin: '-50px'
+        threshold: 0.1,
+        rootMargin: '0px'
     });
 
-    document.querySelectorAll('.paragraph-2, .paragraph-3').forEach(paragraph => {
-        paragraphObserver.observe(paragraph);
-    });
+    setTimeout(() => {
+        document.querySelectorAll('.paragraph-2, .paragraph-3').forEach(paragraph => {
+            paragraphObserver.observe(paragraph);
+        });
+    }, 500);
 });
 
 window.addEventListener('scroll', function() {
