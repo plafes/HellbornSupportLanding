@@ -55,8 +55,15 @@ header::before {
     pointer-events: none;
 }
 
-.logo, .teppo-logo {
+.teppo-logo {
     height: 80px;
+    object-fit: contain;
+    filter: brightness(0.9);
+    pointer-events: auto;
+}
+
+.logo {
+    height: 95px;
     object-fit: contain;
     filter: brightness(0.9);
     pointer-events: auto;
