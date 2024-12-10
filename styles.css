@@ -485,17 +485,27 @@ footer::before {
     }
 
     .content-slider {
+        width: 100%;
         max-width: 100%;
         margin: 1rem 0;
+        display: block;
     }
 
     .slider-container {
-        padding-top: 75%; /* Увеличиваем соотношение сторон для мобильных */
+        padding-top: 75%;
+        display: block;
+        position: relative;
+    }
+
+    .slider-image {
+        display: block;
+        position: absolute;
     }
 
     .slider-arrow {
         padding: 0.5rem;
         font-size: 1rem;
+        display: block;
     }
 
     .footer-content {
