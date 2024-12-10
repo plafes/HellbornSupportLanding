@@ -308,10 +308,10 @@ header::before {
 
 .video-container {
     width: 100%;
-    max-width: 450px;
+    max-width: 350px;
     margin: 2rem auto;
     position: relative;
-    padding-top: 177.78%;
+    padding-top: 137.78%;
     opacity: 0;
     transform: translateX(-100px);
     transition: all 0.8s ease-out;
