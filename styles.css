@@ -167,15 +167,15 @@ header::before {
 
 /* Задержки для каждого параграфа */
 .paragraph-1.active {
-    transition-delay: 3s;
+    transition-delay: 0.1s;
 }
 
 .paragraph-2.active {
-    transition-delay: 4s;
+    transition-delay: 0.2s;
 }
 
 .paragraph-3.active {
-    transition-delay: 4.5s;
+    transition-delay: 0.3s;
 }
 
 
