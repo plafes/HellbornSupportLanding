@@ -643,7 +643,11 @@ footer::before {
     }
 
     .footer-content {
-        padding: 0.5rem 1rem;
+        padding: 0.3rem 1rem;
+    }
+
+    footer {
+        padding: 1rem;
     }
 
     .contact-info h3 {
@@ -667,7 +671,7 @@ footer::before {
     }
 
     .social-links a {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 
     /* Дополнительные улучшения для очень маленьких экранов */
