@@ -262,10 +262,19 @@ header::before {
     transition: opacity 0.8s ease-in-out;
     object-fit: contain;
     background: black;
+    pointer-events: none;
 }
 
 .slider-container {
     background: black;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-image.active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
 }
 
 .slider-image:fullscreen {
