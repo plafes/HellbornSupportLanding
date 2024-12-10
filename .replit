@@ -1,15 +1,10 @@
 
-entrypoint = "index.html"
-run = "python3 -m http.server 80 --bind 0.0.0.0"
-modules = ["web", "nodejs-20"]
+entrypoint = "server.py"
+run = "python3 server.py"
 
 [nix]
 channel = "stable-24_05"
 
-[deployment]
-publicDir = "/"
-run = "python3 -m http.server 80 --bind 0.0.0.0"
-
 [[ports]]
-localPort = 80
-externalPort = 80
+localPort = 8000
+externalPort = 8000
