@@ -273,13 +273,13 @@ footer::before {
 }
 
 .popup-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 2rem;
-    border-radius: 15px;
-    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 100px;
+    left: 20px;
+    padding: 1rem;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
 }
 
 .popup-social-links {
@@ -289,7 +289,7 @@ footer::before {
 
 .popup-social-links a {
     color: #fff;
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     transition: color 0.3s, transform 0.3s;
 }
 
