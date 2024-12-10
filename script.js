@@ -28,25 +28,11 @@ document.addEventListener("DOMContentLoaded", function() {
     teppoLogo.style.pointerEvents = 'auto';
 
     logo.addEventListener('click', (e) => {
-        const ripple = document.createElement('div');
-        ripple.className = 'ripple';
-        ripple.style.left = (e.offsetX - 50) + 'px';
-        ripple.style.top = (e.offsetY - 50) + 'px';
-        logo.appendChild(ripple);
-        setTimeout(() => ripple.remove(), 1000);
-        
         popup.classList.toggle('active');
         teppoPopup.classList.remove('active');
     });
 
     teppoLogo.addEventListener('click', (e) => {
-        const ripple = document.createElement('div');
-        ripple.className = 'ripple';
-        ripple.style.left = (e.offsetX - 50) + 'px';
-        ripple.style.top = (e.offsetY - 50) + 'px';
-        teppoLogo.appendChild(ripple);
-        setTimeout(() => ripple.remove(), 1000);
-        
         teppoPopup.classList.toggle('active');
         popup.classList.remove('active');
     });
