@@ -253,7 +253,22 @@ header::before {
     height: 100%;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    object-fit: cover;
+    object-fit: contain;
+    background: black;
+}
+
+.slider-image:fullscreen {
+    object-fit: contain;
+    background: black;
+    width: 100vw;
+    height: 100vh;
+}
+
+.slider-image:-webkit-full-screen {
+    object-fit: contain;
+    background: black;
+    width: 100vw;
+    height: 100vh;
 }
 
 .slider-image.active {
