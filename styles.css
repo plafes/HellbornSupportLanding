@@ -405,6 +405,8 @@ footer::before {
     right: 0;
     bottom: 0;
     background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
     z-index: -1;
 }
 
@@ -412,7 +414,7 @@ footer::before {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     position: relative;
     padding: 0 2rem;
