@@ -24,6 +24,22 @@ function showSlides() {
 
 // Запускаем слайдшоу когда страница загружена
 document.addEventListener("DOMContentLoaded", function() {
+    // Popup functionality
+    const logo = document.querySelector('.logo');
+    const popup = document.querySelector('.social-popup');
+
+    if (window.innerWidth <= 768) {
+        logo.style.pointerEvents = 'auto';
+        logo.addEventListener('click', () => {
+            popup.classList.add('active');
+        });
+
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                popup.classList.remove('active');
+            }
+        });
+    }
     // Показываем первый слайд сразу
     if (slides.length > 0) {
         slides[0].classList.add("active");
