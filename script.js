@@ -51,6 +51,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             });
         });
+
+        // Закрываем попапы при клике на основной странице
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.logo') && !e.target.closest('.teppo-logo') && 
+                !e.target.closest('.social-popup')) {
+                popup.classList.remove('active');
+                teppoPopup.classList.remove('active');
+            }
+        });
     }
     // Показываем первый слайд сразу
     if (slides.length > 0) {
