@@ -61,11 +61,12 @@ function initializeContentSlider() {
     // Добавляем обработчик для открытия изображений в полный экран
     sliderImages.forEach(img => {
         img.addEventListener('click', () => {
+            const activeImage = document.querySelector('.slider-image.active');
             if (document.fullscreenElement) {
                 document.exitFullscreen();
             } else {
-                img.requestFullscreen().catch(err => {
-                    window.open(img.src, '_blank');
+                activeImage.requestFullscreen().catch(err => {
+                    window.open(activeImage.src, '_blank');
                 });
             }
         });
