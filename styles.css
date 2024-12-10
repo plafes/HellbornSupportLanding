@@ -214,6 +214,14 @@ header::before {
     margin: 2rem auto;
     overflow: hidden;
     border-radius: 10px;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 0.8s ease-out;
+}
+
+.content-slider.active {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .slider-container {

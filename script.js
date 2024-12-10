@@ -73,9 +73,10 @@ document.addEventListener("DOMContentLoaded", function() {
     setInterval(showSlides, 3000);
 
     setTimeout(() => {
-        document.querySelectorAll('.hero-description p').forEach((p, index) => {
+        const elements = [...document.querySelectorAll('.hero-description p'), document.querySelector('.content-slider')];
+        elements.forEach((el, index) => {
             setTimeout(() => {
-                p.classList.add('active');
+                el.classList.add('active');
             }, 100 + (index * 100));
         });
     }, 100);
