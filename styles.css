@@ -129,6 +129,20 @@ header::before {
     object-fit: cover;
 }
 
+.mobile-bg {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktop-bg {
+        display: none;
+    }
+    
+    .mobile-bg {
+        display: block;
+    }
+}
+
 /* Стили для текста */
 .hero-description {
     margin-top: 3rem;
