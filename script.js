@@ -37,9 +37,9 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelectorAll('.hero-description p').forEach((p, index) => {
             setTimeout(() => {
                 p.classList.add('active');
-            }, 500 + (index * 200));
+            }, 100 + (index * 100));
         });
-    }, 500);
+    }, 100);
 
     // Анимация текста
     const typewriter = document.querySelector('.typewriter');
