@@ -50,6 +50,48 @@ header::before {
     position: relative;
 }
 
+@keyframes arrow-animation {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.2) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.logo::before, .teppo-logo::before {
+    content: '↑';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 24px;
+    pointer-events: none;
+    animation: arrow-animation 2s infinite;
+}
+
+.logo::after, .teppo-logo::after {
+    content: '↓';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 24px;
+    pointer-events: none;
+    animation: arrow-animation 2s infinite;
+    animation-delay: 0.5s;
+}
+
 @keyframes ripple {
     0% {
         width: 0;
