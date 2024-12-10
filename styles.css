@@ -211,7 +211,7 @@ header::before {
     position: relative;
     width: 100%;
     max-width: 800px;
-    margin: 2rem auto;
+    margin: 15vh auto 2rem;
     overflow: hidden;
     border-radius: 10px;
     opacity: 0;
