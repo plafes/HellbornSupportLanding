@@ -117,9 +117,36 @@ document.addEventListener("DOMContentLoaded", function() {
     const videoContainer = document.querySelector('.video-container');
     const videoIframe = document.querySelector('.video-container iframe');
 
-    videoContainer.addEventListener('click', () => {
-        const videoUrl = videoIframe.src;
-        window.open(videoUrl, '_blank', 'fullscreen=yes');
+    const videoSlides = document.querySelectorAll('.video-slide');
+    const prevVideo = document.querySelector('.prev-video');
+    const nextVideo = document.querySelector('.next-video');
+    let currentVideo = 0;
+
+    function showVideo(index) {
+        videoSlides.forEach(slide => slide.classList.remove('active'));
+        currentVideo = (index + videoSlides.length) % videoSlides.length;
+        videoSlides[currentVideo].classList.add('active');
+    }
+
+    prevVideo.addEventListener('click', () => {
+        const iframes = document.querySelectorAll('.video-slide iframe');
+        if (!Array.from(iframes).some(iframe => iframe.src.includes('&autoplay=1'))) {
+            showVideo(currentVideo - 1);
+        }
+    });
+
+    nextVideo.addEventListener('click', () => {
+        const iframes = document.querySelectorAll('.video-slide iframe');
+        if (!Array.from(iframes).some(iframe => iframe.src.includes('&autoplay=1'))) {
+            showVideo(currentVideo + 1);
+        }
+    });
+
+    videoContainer.addEventListener('click', (e) => {
+        if (!e.target.classList.contains('video-arrow')) {
+            const activeVideo = videoSlides[currentVideo].querySelector('iframe');
+            window.open(activeVideo.src, '_blank', 'fullscreen=yes');
+        }
     });
 });
 
