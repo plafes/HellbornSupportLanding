@@ -102,12 +102,19 @@ document.addEventListener("DOMContentLoaded", function() {
     const videoSlider = document.querySelector('.video-slider');
     let touchStartX = 0;
 
+    let touchStartX = 0;
+    let touchEndX = 0;
+
     videoSlider.addEventListener('touchstart', function(e) {
         touchStartX = e.touches[0].clientX;
     }, { passive: true });
 
+    videoSlider.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+    }, { passive: false });
+
     videoSlider.addEventListener('touchend', function(e) {
-        const touchEndX = e.changedTouches[0].clientX;
+        touchEndX = e.changedTouches[0].clientX;
         const swipeDistance = touchEndX - touchStartX;
         
         if (Math.abs(swipeDistance) > 50) {
