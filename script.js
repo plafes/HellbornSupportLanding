@@ -81,33 +81,16 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Video slider with Keen-Slider
-    let videoSlider;
-    
-    document.addEventListener("DOMContentLoaded", () => {
-        videoSlider = new KeenSlider("#video-keen-slider", {
-            loop: true,
-            mode: "snap",
-            slides: {
-                perView: 1,
-                spacing: 0,
-            },
-            dragStart: () => {
-                document.querySelector('.video-container').style.cursor = 'grabbing';
-            },
-            dragEnd: () => {
-                document.querySelector('.video-container').style.cursor = 'grab';
-            }
-        });
-
-        // Add navigation buttons functionality
-        const prevButton = document.querySelector('.video-nav.prev');
-        const nextButton = document.querySelector('.video-nav.next');
-        
-        if (prevButton && nextButton && videoSlider) {
-            prevButton.addEventListener("click", () => videoSlider.prev());
-            nextButton.addEventListener("click", () => videoSlider.next());
-        }
+    // Video slider with Swiper
+    const videoSwiper = new Swiper('.video-swiper', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        grabCursor: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
     });
     
 

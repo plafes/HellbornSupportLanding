@@ -326,19 +326,15 @@ header::before {
     overflow: hidden;
 }
 
-.keen-slider__slide {
+.video-swiper .swiper-slide {
     width: 100%;
     height: 622px;
     overflow: hidden;
     border-radius: 10px;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 0 0 100%;
 }
 
-.keen-slider__slide iframe {
+.video-swiper .swiper-slide iframe {
     width: 100%;
     height: 100%;
     border-radius: 10px;
@@ -347,25 +343,17 @@ header::before {
     left: 0;
 }
 
-.video-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
+.video-swiper .swiper-button-next,
+.video-swiper .swiper-button-prev {
     color: white;
-    padding: 15px;
-    cursor: pointer;
-    border: none;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
     border-radius: 5px;
-    z-index: 2;
 }
 
-.video-nav.prev {
-    left: 10px;
-}
-
-.video-nav.next {
-    right: 10px;
+.video-swiper .swiper-button-next::after,
+.video-swiper .swiper-button-prev::after {
+    font-size: 20px;
 }
 
 .paragraph-3.active {
