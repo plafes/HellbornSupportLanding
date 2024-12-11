@@ -26,9 +26,12 @@ function initializeContentSlider() {
     let touchEndX = 0;
 
     function showSlide(index) {
-        sliderImages.forEach(img => img.classList.remove('active'));
+        const oldSlide = document.querySelector('.slider-image.active');
         currentSlide = (index + sliderImages.length) % sliderImages.length;
-        sliderImages[currentSlide].classList.add('active');
+        const newSlide = sliderImages[currentSlide];
+        
+        if (oldSlide) oldSlide.classList.remove('active');
+        newSlide.classList.add('active');
     }
 
     const handleTouchStart = (e) => {

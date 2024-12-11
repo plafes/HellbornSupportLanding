@@ -263,6 +263,7 @@ header::before {
     object-fit: contain;
     background: black;
     pointer-events: none;
+    z-index: 0;
 }
 
 .slider-container {
