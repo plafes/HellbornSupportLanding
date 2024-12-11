@@ -116,6 +116,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
     teppoLogo.addEventListener('click', (e) => {
         teppoPopup.classList.toggle('active');
+
+    // Обработка анимации для социальных иконок на мобильных устройствах
+    document.querySelectorAll('.social-links a').forEach(link => {
+        link.addEventListener('touchend', function() {
+            this.classList.add('touched');
+            setTimeout(() => {
+                this.classList.remove('touched');
+            }, 700);
+        });
+    });
+
+
         popup.classList.remove('active');
     });
 

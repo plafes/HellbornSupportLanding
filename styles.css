@@ -395,10 +395,32 @@ footer::before {
     transition: color 0.3s, transform 0.3s ease;
 }
 
-.social-links a:hover, .social-links a:active {
+.social-links a:hover {
     color: var(--primary-red);
     transform: scale(1.2);
 }
+
+.social-links a:active {
+    color: var(--primary-red);
+    transform: scale(1.2);
+}
+
+.social-links a.touched {
+    animation: resetColor 0.7s forwards;
+}
+
+
+@keyframes resetColor {
+    0% {
+        color: var(--primary-red);
+        transform: scale(1.2);
+    }
+    100% {
+        color: #fff;
+        transform: scale(1);
+    }
+}
+
 
 /* Социальное всплывающее окно */
 .social-popup {
@@ -605,7 +627,7 @@ footer::before {
         padding: 0.1rem 1rem;
     }
 
-    footer {
+    .footer {
         padding: 0.5rem;
     }
 
