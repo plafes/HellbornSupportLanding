@@ -3,8 +3,16 @@ document.addEventListener("DOMContentLoaded", function() {
     const paragraphs = document.querySelectorAll('.paragraph-1, .paragraph-2, .paragraph-3');
     const sliders = document.querySelectorAll('.content-slider, .video-container');
     
-    paragraphs.forEach(p => p.classList.add('section-animate'));
-    sliders.forEach(s => s.classList.add('section-animate'));
+    setTimeout(() => {
+        paragraphs.forEach(p => {
+            p.classList.add('section-animate');
+            p.classList.add('active');
+        });
+        sliders.forEach(s => {
+            s.classList.add('section-animate');
+            s.classList.add('active');
+        });
+    }, 100);
     // Initialize content slider
     const contentSwiper = new Swiper('.content-slider', {
         effect: 'coverflow',
@@ -115,7 +123,8 @@ window.addEventListener('scroll', function() {
 
 const sections = document.querySelectorAll('.section-animate');
 const observerOptions = {
-    threshold: 0.25
+    threshold: 0.1,
+    rootMargin: '0px 0px -10% 0px'
 };
 
 const observer = new IntersectionObserver(function(entries, observer) {

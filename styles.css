@@ -663,7 +663,8 @@ footer::before {
 .section-animate {
     opacity: 0;
     transform: translateX(-100px);
-    transition: all 0.8s ease-out;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
 }
 
 .section-animate.active {
