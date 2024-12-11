@@ -76,26 +76,24 @@ function initializeContentSlider() {
 
     // Добавляем обработчик для открытия изображений в полный экран
     sliderImages.forEach(img => {
-        img.addEventListener('click', () => {
-            const activeImage = document.querySelector('.slider-image.active');
+        img.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             if (document.fullscreenElement) {
                 document.exitFullscreen();
             } else if (window.innerWidth <= 768) {
-                // На мобильных устройствах отключаем автосмену в полноэкранном режиме
                 clearInterval(window.sliderInterval);
-                activeImage.requestFullscreen().catch(err => {
-                    window.open(activeImage.src, '_blank');
+                this.requestFullscreen().catch(err => {
+                    window.open(this.src, '_blank');
                 });
-                // Добавляем обработчик выхода из полноэкранного режима
                 document.addEventListener('fullscreenchange', function() {
-                    if (!document.fullscreenElement) {
-                        // Восстанавливаем автосмену при выходе из полноэкрана
+                    if (!document.fullscreenElement && window.innerWidth > 768) {
                         window.sliderInterval = setInterval(() => showSlide(currentSlide + 1), 5000);
                     }
                 });
             } else {
-                activeImage.requestFullscreen().catch(err => {
-                    window.open(activeImage.src, '_blank');
+                this.requestFullscreen().catch(err => {
+                    window.open(this.src, '_blank');
                 });
             }
         });
