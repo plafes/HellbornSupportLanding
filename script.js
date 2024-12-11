@@ -82,23 +82,22 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Video slider functionality
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.video-slide');
-    const prevButton = document.querySelector('.video-nav.prev');
-    const nextButton = document.querySelector('.video-nav.next');
-    
-    function changeSlide(direction) {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + direction + slides.length) % slides.length;
-        slides[currentSlide].classList.add('active');
-    }
-
-    // Button click events
-    prevButton.addEventListener('click', () => changeSlide(-1));
-    nextButton.addEventListener('click', () => changeSlide(1));
-
-    // Touch events for video slider
+    // Video slider with Keen-Slider
+    const videoSlider = new KeenSlider("#video-keen-slider", {
+        loop: true,
+        mode: "snap",
+        slides: {
+            perView: 1,
+            spacing: 15,
+        },
+        created(s) {
+            const prevButton = document.querySelector('.video-nav.prev');
+            const nextButton = document.querySelector('.video-nav.next');
+            
+            prevButton.addEventListener("click", () => s.prev());
+            nextButton.addEventListener("click", () => s.next());
+        },
+    });
     const videoSlider = document.querySelector('.video-slider');
     let touchStartX = 0;
     let touchStartY = 0;

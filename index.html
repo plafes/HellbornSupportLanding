@@ -81,16 +81,16 @@
                 <p class="paragraph-2">Но Hellborn Support – это не только про концерты. Мы – дружная и сплочённая команда, которая постоянно общается, делится идеями, устраивает встречи и просто проводит время вместе, создавая что-то крутое.</p>
                 
                 <div class="video-container">
-                    <div class="video-slider">
-                        <div class="video-slide active">
+                    <div id="video-keen-slider" class="keen-slider">
+                        <div class="keen-slider__slide">
                             <iframe src="https://vk.com/video_ext.php?oid=-227710453&id=456239024&hd=2" width="853" height="480" allow="autoplay; encrypted-media; fullscreen; picture-in-picture;" frameborder="0" allowfullscreen></iframe>
                         </div>
-                        <div class="video-slide">
+                        <div class="keen-slider__slide">
                             <iframe src="https://vk.com/video_ext.php?oid=-227710453&id=456239022&hd=2" width="853" height="480" allow="autoplay; encrypted-media; fullscreen; picture-in-picture;" frameborder="0" allowfullscreen></iframe>
                         </div>
-                        <button class="video-nav prev" onclick="changeSlide(-1)">❮</button>
-                        <button class="video-nav next" onclick="changeSlide(1)">❯</button>
                     </div>
+                    <button class="video-nav prev">❮</button>
+                    <button class="video-nav next">❯</button>
                 </div>
                 <p class="paragraph-3">Hellborn Support – это объединение людей с огнём в сердцах. Мы всегда открыты для новых идей, пожеланий и тех, кто хочет присоединиться к нашей по-адски горячей и дружной команде.
 Присоединяйтесь к нашим соцсетям, чтобы тоже погрузиться в мир музыки ТЕППО и увидеть его так, как видим мы. Все контакты для связи вы можете найти в нашем Телеграмм-канале или группе ВК. 
@@ -114,6 +114,7 @@
         </div>
     </footer>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/keen-slider@latest/keen-slider.min.css" />
     <script src="script.js"></script>
 </body>
 </html>
