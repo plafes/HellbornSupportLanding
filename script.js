@@ -91,6 +91,14 @@ document.addEventListener("DOMContentLoaded", function() {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
+        keyboard: {
+            enabled: true,
+        },
+        touchRatio: 1,
+        touchAngle: 45,
+        touchStartPreventDefault: false,
+        touchStartForcePreventDefault: false,
+        touchMoveStopPropagation: true,
     });
     
 
