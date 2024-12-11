@@ -1,5 +1,10 @@
 
 document.addEventListener("DOMContentLoaded", function() {
+    const paragraphs = document.querySelectorAll('.paragraph-1, .paragraph-2, .paragraph-3');
+    const sliders = document.querySelectorAll('.content-slider, .video-container');
+    
+    paragraphs.forEach(p => p.classList.add('section-animate'));
+    sliders.forEach(s => s.classList.add('section-animate'));
     // Initialize content slider
     const contentSwiper = new Swiper('.content-slider.swiper-container', {
         effect: 'coverflow',

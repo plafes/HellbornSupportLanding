@@ -652,3 +652,29 @@ footer::before {
         }
     }
 }
+
+.section-animate {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 0.8s ease-out;
+}
+
+.section-animate.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.hero-description p,
+.content-slider,
+.video-container {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 0.8s ease-out;
+}
+
+.hero-description p.active,
+.content-slider.active,
+.video-container.active {
+    opacity: 1;
+    transform: translateX(0);
+}
