@@ -51,14 +51,26 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Initialize video slider
-    const videoSwiper = new Swiper('.video-container.swiper-container', {
-        effect: 'fade',
-        fadeEffect: {
-            crossFade: true
+    const videoSwiper = new Swiper('.video-container', {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        initialSlide: 0,
+        coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
         },
         navigation: {
-            nextEl: '.video-container .swiper-button-next',
-            prevEl: '.video-container .swiper-button-prev',
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
         }
     });
 
