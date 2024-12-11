@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Initialize video slider
     const videoSwiper = new Swiper('.video-container', {
         effect: 'slide',
-        grabCursor: false,
+        grabCursor: true,
         centeredSlides: true,
         slidesPerView: 1,
         initialSlide: 0,
