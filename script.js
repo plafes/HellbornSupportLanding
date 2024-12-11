@@ -103,21 +103,35 @@ document.addEventListener("DOMContentLoaded", function() {
     let touchStartX = 0;
     let touchEndX = 0;
 
+    let isSwiping = false;
+    let startTime = 0;
+
     videoSlider.addEventListener('touchstart', function(e) {
         touchStartX = e.touches[0].clientX;
+        startTime = Date.now();
+        isSwiping = false;
     });
 
     videoSlider.addEventListener('touchmove', function(e) {
         touchEndX = e.touches[0].clientX;
-        const swipeDistance = touchEndX - touchStartX;
+        const swipeDistance = Math.abs(touchEndX - touchStartX);
         
-        if (Math.abs(swipeDistance) > 50) {
+        if (swipeDistance > 30) {
+            isSwiping = true;
+            e.preventDefault();
+        }
+    });
+
+    videoSlider.addEventListener('touchend', function(e) {
+        const touchDuration = Date.now() - startTime;
+        const swipeDistance = touchEndX - touchStartX;
+
+        if (isSwiping && Math.abs(swipeDistance) > 50) {
             if (swipeDistance > 0) {
                 changeSlide(-1);
             } else {
                 changeSlide(1);
             }
-            touchStartX = touchEndX;
         }
     });
 
