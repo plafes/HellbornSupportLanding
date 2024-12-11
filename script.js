@@ -45,30 +45,36 @@ function initializeContentSlider() {
     const handleTouchStart = (e) => {
         touchStartX = e.touches[0].clientX;
         touchMoved = false;
+        const activeSlide = document.querySelector('.slider-image.active');
+        activeSlide.style.transition = 'none';
     };
 
     const handleTouchMove = (e) => {
         touchMoved = true;
         const currentX = e.touches[0].clientX;
-        const difference = touchStartX - currentX;
+        const difference = currentX - touchStartX;
+        const activeSlide = document.querySelector('.slider-image.active');
         
-        if (Math.abs(difference) > 5) {
-            e.preventDefault();
-        }
+        e.preventDefault();
+        activeSlide.style.transform = `translateX(${difference}px)`;
     };
 
     const handleTouchEnd = (e) => {
         if (!touchMoved) return;
         
+        const activeSlide = document.querySelector('.slider-image.active');
+        activeSlide.style.transition = 'transform 0.3s ease-out';
         touchEndX = e.changedTouches[0].clientX;
         const difference = touchStartX - touchEndX;
         
-        if (Math.abs(difference) > 30) {
+        if (Math.abs(difference) > 50) {
             if (difference > 0) {
                 showSlide(currentSlide + 1);
             } else {
                 showSlide(currentSlide - 1);
             }
+        } else {
+            activeSlide.style.transform = 'translateX(0)';
         }
     };
 
