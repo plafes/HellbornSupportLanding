@@ -189,6 +189,12 @@ const observer = new IntersectionObserver(function(entries, observer) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
+        } else {
+            entry.target.classList.remove('active');
+            // Сброс анимации
+            entry.target.style.animation = 'none';
+            entry.target.offsetHeight; // Триггер перерисовки
+            entry.target.style.animation = null;
         }
     });
 }, observerOptions);
