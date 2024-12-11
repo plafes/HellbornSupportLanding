@@ -305,11 +305,13 @@ header::before {
     width: 100%;
     max-width: 350px;
     margin: 2rem auto;
-    height: 480px;
+    height: 622px;
     opacity: 0;
     transform: translateX(-100px);
     transition: all 0.8s ease-out;
     position: relative;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .video-container.active {
