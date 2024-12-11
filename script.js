@@ -87,6 +87,8 @@ document.addEventListener("DOMContentLoaded", function() {
         slidesPerView: 1,
         spaceBetween: 0,
         grabCursor: true,
+        preventClicks: false,
+        preventClicksPropagation: false,
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
@@ -95,18 +97,20 @@ document.addEventListener("DOMContentLoaded", function() {
             enabled: true,
         },
         touchRatio: 1,
-        resistance: false,
-        touchAngle: 45,
-        shortSwipes: true,
-        longSwipes: true,
-        followFinger: true,
-        touchStartPreventDefault: false,
-        touchStartForcePreventDefault: true,
-        touchMoveStopPropagation: false,
-        preventInteractionOnTransition: false,
-        allowTouchMove: true,
-        threshold: 20,
-        touchReleaseOnEdges: true
+        threshold: 5,
+        touchStartPreventDefault: true,
+        touchStartForcePreventDefault: false,
+        touchMoveStopPropagation: true,
+        resistance: true,
+        resistanceRatio: 0.85,
+        on: {
+            touchStart: function() {
+                document.body.style.overflow = 'hidden';
+            },
+            touchEnd: function() {
+                document.body.style.overflow = 'auto';
+            }
+        }
     });
     
 
