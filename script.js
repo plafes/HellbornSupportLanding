@@ -101,33 +101,35 @@ document.addEventListener("DOMContentLoaded", function() {
     // Touch events for video slider
     const videoSlider = document.querySelector('.video-slider');
     let touchStartX = 0;
-    let touchEndX = 0;
-
-    let isSwiping = false;
-    let startTime = 0;
-
+    let touchStartY = 0;
+    let touchMoveX = 0;
+    let touchMoveY = 0;
+    
     videoSlider.addEventListener('touchstart', function(e) {
         touchStartX = e.touches[0].clientX;
-        startTime = Date.now();
-        isSwiping = false;
-    });
+        touchStartY = e.touches[0].clientY;
+        touchMoveX = touchStartX;
+        touchMoveY = touchStartY;
+    }, { passive: false });
 
     videoSlider.addEventListener('touchmove', function(e) {
-        touchEndX = e.touches[0].clientX;
-        const swipeDistance = Math.abs(touchEndX - touchStartX);
+        touchMoveX = e.touches[0].clientX;
+        touchMoveY = e.touches[0].clientY;
         
-        if (swipeDistance > 30) {
-            isSwiping = true;
+        const deltaX = Math.abs(touchMoveX - touchStartX);
+        const deltaY = Math.abs(touchMoveY - touchStartY);
+        
+        if (deltaX > deltaY && deltaX > 10) {
             e.preventDefault();
         }
-    });
+    }, { passive: false });
 
     videoSlider.addEventListener('touchend', function(e) {
-        const touchDuration = Date.now() - startTime;
-        const swipeDistance = touchEndX - touchStartX;
-
-        if (isSwiping && Math.abs(swipeDistance) > 50) {
-            if (swipeDistance > 0) {
+        const deltaX = touchMoveX - touchStartX;
+        const deltaY = Math.abs(touchMoveY - touchStartY);
+        
+        if (Math.abs(deltaX) > 50 && deltaY < 30) {
+            if (deltaX > 0) {
                 changeSlide(-1);
             } else {
                 changeSlide(1);
