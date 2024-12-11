@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HELLBORN SUPPORT</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <!-- Font Awesome для иконок -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <div id="socialPopup" class="social-popup">
@@ -62,35 +63,37 @@
                 <p class="paragraph-1">Мы – Hellborn Support, команда демонов, живущая музыкой ТЕППО, нашего Лорда мантикор и химер.
 Наши перформансы – это не просто поддержка артиста, но и целый мир визуальной магии - дополняющий и раскрывающий выступления артиста. Яркие шоу, драйвовые идеи, бешеный слэм на танцполе – всё это устраиваем мы.</p>
                 
-                <div class="content-slider">
-                    <button class="slider-arrow prev">&#10094;</button>
-                    <button class="slider-arrow next">&#10095;</button>
-                    <div class="slider-container">
-                        <img src="https://i.ibb.co/1Mg0wrM/FOX07271.jpg" class="slider-image active desktop-only">
-                        <img src="https://i.ibb.co/6W64TMh/FOX03248.jpg" class="slider-image desktop-only">
-                        <img src="https://i.ibb.co/NW40nHk/FOX07449.jpg" class="slider-image desktop-only">
-                        <img src="https://i.ibb.co/bv9gLYM/FOX07178.jpg" class="slider-image desktop-only">
-                        <img src="https://i.ibb.co/VqNZzhN/1.jpg" class="slider-image active mobile-only">
-                        <img src="https://i.ibb.co/W0V0jfh/2.jpg" class="slider-image mobile-only">
-                        <img src="https://i.ibb.co/grd4Ymw/3.jpg" class="slider-image mobile-only">
-                        <img src="https://i.ibb.co/Zfq3v0H/4.jpg" class="slider-image mobile-only">
-                        <img src="https://i.ibb.co/YP9S30J/5.jpg" class="slider-image mobile-only">
-                        <img src="https://i.ibb.co/qjfHhc1/6.jpg" class="slider-image mobile-only">
-                        <img src="https://i.ibb.co/92rRxJ3/7.jpg" class="slider-image mobile-only">
+                <div class="content-slider swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide desktop-only"><img src="https://i.ibb.co/1Mg0wrM/FOX07271.jpg"></div>
+                        <div class="swiper-slide desktop-only"><img src="https://i.ibb.co/6W64TMh/FOX03248.jpg"></div>
+                        <div class="swiper-slide desktop-only"><img src="https://i.ibb.co/NW40nHk/FOX07449.jpg"></div>
+                        <div class="swiper-slide desktop-only"><img src="https://i.ibb.co/bv9gLYM/FOX07178.jpg"></div>
+                        <div class="swiper-slide mobile-only"><img src="https://i.ibb.co/VqNZzhN/1.jpg"></div>
+                        <div class="swiper-slide mobile-only"><img src="https://i.ibb.co/W0V0jfh/2.jpg"></div>
+                        <div class="swiper-slide mobile-only"><img src="https://i.ibb.co/grd4Ymw/3.jpg"></div>
+                        <div class="swiper-slide mobile-only"><img src="https://i.ibb.co/Zfq3v0H/4.jpg"></div>
+                        <div class="swiper-slide mobile-only"><img src="https://i.ibb.co/YP9S30J/5.jpg"></div>
+                        <div class="swiper-slide mobile-only"><img src="https://i.ibb.co/qjfHhc1/6.jpg"></div>
+                        <div class="swiper-slide mobile-only"><img src="https://i.ibb.co/92rRxJ3/7.jpg"></div>
                     </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
                 
                 <p class="paragraph-2">Но Hellborn Support – это не только про концерты. Мы – дружная и сплочённая команда, которая постоянно общается, делится идеями, устраивает встречи и просто проводит время вместе, создавая что-то крутое.</p>
                 
-                <div class="video-container">
-                    <div class="video-slide active">
-                        <iframe src="https://vk.com/video_ext.php?oid=-227710453&id=456239024&hd=2" width="853" height="480" allow="autoplay; encrypted-media; fullscreen; picture-in-picture;" frameborder="0" allowfullscreen></iframe>
+                <div class="video-container swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <iframe src="https://vk.com/video_ext.php?oid=-227710453&id=456239024&hd=2" width="853" height="480" allow="autoplay; encrypted-media; fullscreen; picture-in-picture;" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="swiper-slide">
+                            <iframe src="https://vk.com/video_ext.php?oid=-227710453&id=456239022&hd=2" width="853" height="480" allow="autoplay; encrypted-media; fullscreen; picture-in-picture;" frameborder="0" allowfullscreen></iframe>
+                        </div>
                     </div>
-                    <div class="video-slide">
-                        <iframe src="https://vk.com/video_ext.php?oid=-227710453&id=456239022&hd=2" width="853" height="480" allow="autoplay; encrypted-media; fullscreen; picture-in-picture;" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <button class="video-arrow prev-video">&#10094;</button>
-                    <button class="video-arrow next-video">&#10095;</button>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
                 
                 <p class="paragraph-3">Hellborn Support – это объединение людей с огнём в сердцах. Мы всегда открыты для новых идей, пожеланий и тех, кто хочет присоединиться к нашей по-адски горячей и дружной команде.
@@ -114,6 +117,7 @@
             </div>
         </div>
     </footer>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

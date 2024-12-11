@@ -226,11 +226,9 @@ header::before {
 
 /* Стили для слайдера */
 .content-slider {
-    position: relative;
     width: 100%;
     max-width: 800px;
     margin: 2rem auto;
-    overflow: hidden;
     border-radius: 10px;
     opacity: 0;
     transform: translateX(-100px);
@@ -243,119 +241,44 @@ header::before {
     transform: translateX(0);
 }
 
-.slider-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding-top: 56.25%;
+.swiper-slide {
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
 }
 
-.slider-image {
-    position: absolute;
-    top: 0;
-    left: 0;
+.swiper-slide img {
     width: 100%;
     height: 100%;
-    opacity: 0;
-    transform: translateX(100%);
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
     object-fit: contain;
-    background: black;
-    pointer-events: none;
-    z-index: 0;
 }
 
-.slider-image.prev {
-    transform: translateX(-100%);
-}
-
-.slider-image.active {
-    transform: translateX(0);
-    opacity: 1;
-    pointer-events: auto;
-    z-index: 1;
-}
-
-.slider-container {
-    background: black;
-    position: relative;
-    overflow: hidden;
-}
-
-.slider-image.active {
-    opacity: 1;
-    pointer-events: auto;
-    z-index: 1;
-}
-
-.slider-image:fullscreen {
+.swiper-slide img:fullscreen {
     object-fit: contain;
     background: black;
     width: 100vw !important;
     height: 100vh !important;
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
-}
-
-.slider-image:-webkit-full-screen {
-    object-fit: contain;
-    background: black;
-    width: 100vw !important;
-    height: 100vh !important;
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
 }
 
 @media (max-width: 768px) {
-    .slider-image:fullscreen,
-    .slider-image:-webkit-full-screen {
+    .swiper-slide img:fullscreen {
         object-fit: cover;
     }
 }
 
-.slider-image.active {
-    opacity: 1;
-    transition: transform 0.3s ease;
+.swiper-button-next,
+.swiper-button-prev {
+    color: white !important;
 }
 
-.slider-image.active:hover {
-    transform: scale(1.02);
+.swiper-pagination-bullet {
+    background: white !important;
 }
 
-.slider-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 1rem;
-    cursor: pointer;
-    z-index: 10;
-    font-size: 1.2rem;
-    transition: background 0.3s;
-}
-
-.slider-arrow:hover {
-    background: rgba(0, 0, 0, 0.8);
-}
-
-.prev {
-    left: 0;
-    border-radius: 0 5px 5px 0;
-}
-
-.next {
-    right: 0;
-    border-radius: 5px 0 0 5px;
+.swiper-pagination-bullet-active {
+    background: #fff !important;
 }
 
 /* Задержки для каждого параграфа */
@@ -375,12 +298,10 @@ header::before {
     width: 100%;
     max-width: 350px;
     margin: 2rem auto;
-    position: relative;
-    padding-top: 137.78%;
+    height: 480px;
     opacity: 0;
     transform: translateX(-100px);
     transition: all 0.8s ease-out;
-    cursor: pointer;
 }
 
 .video-container.active {
@@ -388,56 +309,19 @@ header::before {
     transform: translateX(0);
 }
 
-.video-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
-    pointer-events: none;
-    transform: scale(0.95);
+.video-container .swiper-slide {
+    height: 480px;
 }
 
-.video-slide.active {
-    opacity: 1;
-    pointer-events: auto;
-    transform: scale(1);
-    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
-}
-
-.video-slide iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
+.video-container .swiper-slide iframe {
     width: 100%;
     height: 100%;
     border-radius: 10px;
 }
 
-.video-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
+.video-container .swiper-button-next,
+.video-container .swiper-button-prev {
     color: white;
-    border: none;
-    padding: 1rem;
-    cursor: pointer;
-    z-index: 10;
-    font-size: 1.2rem;
-    transition: background 0.3s;
-}
-
-.prev-video {
-    left: 0;
-    border-radius: 0 5px 5px 0;
-}
-
-.next-video {
-    right: 0;
-    border-radius: 5px 0 0 5px;
 }
 
 .paragraph-3.active {
