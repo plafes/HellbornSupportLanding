@@ -76,6 +76,19 @@ function initializeContentSlider() {
             const activeImage = document.querySelector('.slider-image.active');
             if (document.fullscreenElement) {
                 document.exitFullscreen();
+            } else if (window.innerWidth <= 768) {
+                // На мобильных устройствах отключаем автосмену в полноэкранном режиме
+                clearInterval(window.sliderInterval);
+                activeImage.requestFullscreen().catch(err => {
+                    window.open(activeImage.src, '_blank');
+                });
+                // Добавляем обработчик выхода из полноэкранного режима
+                document.addEventListener('fullscreenchange', function() {
+                    if (!document.fullscreenElement) {
+                        // Восстанавливаем автосмену при выходе из полноэкрана
+                        window.sliderInterval = setInterval(() => showSlide(currentSlide + 1), 5000);
+                    }
+                });
             } else {
                 activeImage.requestFullscreen().catch(err => {
                     window.open(activeImage.src, '_blank');
