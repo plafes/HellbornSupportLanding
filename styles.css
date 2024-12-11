@@ -309,6 +309,8 @@ header::before {
     opacity: 0;
     transform: translateX(-100px);
     transition: all 0.8s ease-out;
+    overflow: hidden;
+    position: relative;
 }
 
 .video-container.active {

@@ -52,19 +52,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Initialize video slider
     const videoSwiper = new Swiper('.video-container', {
-        effect: 'coverflow',
-        grabCursor: true,
+        effect: 'slide',
+        grabCursor: false,
         centeredSlides: true,
-        slidesPerView: 'auto',
+        slidesPerView: 1,
         initialSlide: 0,
         loop: true,
-        coverflowEffect: {
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
-        },
+        preventInteractionOnTransition: true,
+        touchRatio: 1,
+        resistance: false,
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
