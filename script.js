@@ -85,6 +85,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // Video slider functionality
     let currentSlide = 0;
     const slides = document.querySelectorAll('.video-slide');
+    const prevButton = document.querySelector('.video-nav.prev');
+    const nextButton = document.querySelector('.video-nav.next');
     
     function changeSlide(direction) {
         slides[currentSlide].classList.remove('active');
@@ -92,24 +94,27 @@ document.addEventListener("DOMContentLoaded", function() {
         slides[currentSlide].classList.add('active');
     }
 
+    // Button click events
+    prevButton.addEventListener('click', () => changeSlide(-1));
+    nextButton.addEventListener('click', () => changeSlide(1));
+
     // Touch events for video slider
     const videoSlider = document.querySelector('.video-slider');
     let touchStartX = 0;
-    let touchEndX = 0;
 
     videoSlider.addEventListener('touchstart', function(e) {
         touchStartX = e.touches[0].clientX;
-    });
+    }, { passive: true });
 
     videoSlider.addEventListener('touchend', function(e) {
-        touchEndX = e.changedTouches[0].clientX;
+        const touchEndX = e.changedTouches[0].clientX;
         const swipeDistance = touchEndX - touchStartX;
         
         if (Math.abs(swipeDistance) > 50) {
             if (swipeDistance > 0) {
-                changeSlide(-1); // Свайп вправо
+                changeSlide(-1);
             } else {
-                changeSlide(1); // Свайп влево
+                changeSlide(1);
             }
         }
     });
