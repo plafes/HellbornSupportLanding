@@ -82,29 +82,15 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Initialize video slider
-    const videoSwiper = new Swiper('.video-container', {
-        effect: 'slide',
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: 1,
-        initialSlide: 0,
-        loop: true,
-        touchRatio: 1,
-        resistanceRatio: 0,
-        shortSwipes: true,
-        longSwipes: true,
-        followFinger: true,
-        threshold: 5,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        }
-    });
+    // Video slider functionality
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.video-slide');
+    
+    function changeSlide(direction) {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + direction + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
 
     const logo = document.querySelector('.logo');
     const teppoLogo = document.querySelector('.teppo-logo');
