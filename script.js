@@ -95,11 +95,18 @@ document.addEventListener("DOMContentLoaded", function() {
             enabled: true,
         },
         touchRatio: 1,
+        resistance: false,
         touchAngle: 45,
-        touchStartPreventDefault: true,
-        preventInteractionOnTransition: true,
-        touchMoveStopPropagation: true,
+        shortSwipes: true,
+        longSwipes: true,
+        followFinger: true,
+        touchStartPreventDefault: false,
+        touchStartForcePreventDefault: true,
+        touchMoveStopPropagation: false,
+        preventInteractionOnTransition: false,
         allowTouchMove: true,
+        threshold: 20,
+        touchReleaseOnEdges: true
     });
     
 
