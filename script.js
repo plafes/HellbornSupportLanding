@@ -30,7 +30,13 @@ function initializeContentSlider() {
         currentSlide = (index + sliderImages.length) % sliderImages.length;
         const newSlide = sliderImages[currentSlide];
         
-        if (oldSlide) oldSlide.classList.remove('active');
+        if (oldSlide) {
+            oldSlide.classList.remove('active');
+            oldSlide.classList.add('prev');
+            setTimeout(() => {
+                oldSlide.classList.remove('prev');
+            }, 500);
+        }
         newSlide.classList.add('active');
     }
 
