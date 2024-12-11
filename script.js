@@ -131,30 +131,25 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Background slideshow
-    let slideIndex = 0;
-    const slides = document.getElementsByClassName("slide");
+    let bgSlideIndex = 0;
+    const bgSlides = document.getElementsByClassName("slide");
 
-    function showSlides() {
-        if (!slides.length) return;
+    function showBackgroundSlides() {
+        if (!bgSlides.length) return;
         
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].classList.remove("active");
+        for (let i = 0; i < bgSlides.length; i++) {
+            bgSlides[i].classList.remove("active");
         }
         
-        slideIndex++;
-        
-        if (slideIndex > slides.length) {
-            slideIndex = 1;
-        }
-        
-        slides[slideIndex - 1].classList.add("active");
+        bgSlideIndex = (bgSlideIndex + 1) % bgSlides.length;
+        bgSlides[bgSlideIndex].classList.add("active");
     }
 
-    if (slides.length > 0) {
-        slides[0].classList.add("active");
+    if (bgSlides.length > 0) {
+        bgSlides[0].classList.add("active");
     }
     
-    setInterval(showSlides, 3000);
+    setInterval(showBackgroundSlides, 3000);
 });
 
 window.addEventListener('scroll', function() {
