@@ -45,12 +45,13 @@ function initializeContentSlider() {
     };
 
     const handleTouchEnd = (e) => {
-        e.preventDefault();
+        if (e.cancelable) {
+            e.preventDefault();
+        }
         touchEndX = e.changedTouches[0].clientX;
         const difference = touchStartX - touchEndX;
         
-        // Проверяем, что слайдер не в полноэкранном режиме
-        if (!document.fullscreenElement && Math.abs(difference) > 50) {
+        if (Math.abs(difference) > 50) {
             if (difference > 0) {
                 showSlide(currentSlide + 1);
             } else {
@@ -65,9 +66,23 @@ function initializeContentSlider() {
     }
 
     const slider = document.querySelector('.content-slider');
-    slider.addEventListener('touchstart', handleTouchStart, {passive: false});
-    slider.addEventListener('touchend', handleTouchEnd, {passive: false});
-    slider.addEventListener('touchmove', (e) => e.preventDefault(), {passive: false});
+    let isTouching = false;
+    
+    slider.addEventListener('touchstart', (e) => {
+        isTouching = true;
+        handleTouchStart(e);
+    }, {passive: true});
+    
+    slider.addEventListener('touchend', (e) => {
+        isTouching = false;
+        handleTouchEnd(e);
+    }, {passive: false});
+    
+    slider.addEventListener('touchmove', (e) => {
+        if (isTouching && Math.abs(e.touches[0].clientX - touchStartX) > 5) {
+            e.preventDefault();
+        }
+    }, {passive: false});
 
     // Only enable auto-slide for desktop
     if (window.innerWidth > 768) {
@@ -77,27 +92,31 @@ function initializeContentSlider() {
     // Добавляем обработчик для открытия изображений в полный экран
     sliderImages.forEach(img => {
         img.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (document.fullscreenElement) {
-                document.exitFullscreen();
-            } else if (window.innerWidth <= 768) {
-                clearInterval(window.sliderInterval);
-                this.requestFullscreen().catch(err => {
-                    window.open(this.src, '_blank');
-                });
-                document.addEventListener('fullscreenchange', function() {
-                    if (!document.fullscreenElement && window.innerWidth > 768) {
-                        window.sliderInterval = setInterval(() => showSlide(currentSlide + 1), 5000);
+            if (!isTouching) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                if (document.fullscreenElement) {
+                    document.exitFullscreen();
+                } else {
+                    if (window.innerWidth <= 768) {
+                        clearInterval(window.sliderInterval);
                     }
-                });
-            } else {
-                this.requestFullscreen().catch(err => {
-                    window.open(this.src, '_blank');
-                });
+                    
+                    this.requestFullscreen().catch(err => {
+                        window.open(this.src, '_blank');
+                    });
+                }
             }
         });
+        
         img.style.cursor = 'pointer';
+    });
+
+    document.addEventListener('fullscreenchange', function() {
+        if (!document.fullscreenElement && window.innerWidth > 768) {
+            window.sliderInterval = setInterval(() => showSlide(currentSlide + 1), 5000);
+        }
     });
 }
 
