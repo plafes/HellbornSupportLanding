@@ -328,15 +328,19 @@ header::before {
 
 .keen-slider__slide {
     width: 100%;
-    height: 100%;
+    height: 622px;
     overflow: hidden;
     border-radius: 10px;
+    position: relative;
 }
 
 .keen-slider__slide iframe {
     width: 100%;
     height: 100%;
     border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .video-nav {
