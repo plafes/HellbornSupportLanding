@@ -96,9 +96,10 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         touchRatio: 1,
         touchAngle: 45,
-        touchStartPreventDefault: false,
-        touchStartForcePreventDefault: false,
+        touchStartPreventDefault: true,
+        preventInteractionOnTransition: true,
         touchMoveStopPropagation: true,
+        allowTouchMove: true,
     });
     
 
