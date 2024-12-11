@@ -41,7 +41,37 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (clickedSlide && !document.fullscreenElement) {
                     const img = clickedSlide.querySelector('img');
                     if (img) {
-                        img.requestFullscreen().catch(err => {
+                        img.requestFullscreen().then(() => {
+                            let touchStartX = 0;
+                            let touchEndX = 0;
+                            
+                            document.addEventListener('keydown', function(e) {
+                                if (document.fullscreenElement) {
+                                    if (e.key === 'ArrowRight') {
+                                        swiper.slideNext();
+                                    } else if (e.key === 'ArrowLeft') {
+                                        swiper.slidePrev();
+                                    } else if (e.key === 'Escape') {
+                                        document.exitFullscreen();
+                                    }
+                                }
+                            });
+
+                            document.addEventListener('touchstart', function(e) {
+                                touchStartX = e.changedTouches[0].screenX;
+                            });
+
+                            document.addEventListener('touchend', function(e) {
+                                if (document.fullscreenElement) {
+                                    touchEndX = e.changedTouches[0].screenX;
+                                    if (touchEndX < touchStartX - 50) {
+                                        swiper.slideNext();
+                                    } else if (touchEndX > touchStartX + 50) {
+                                        swiper.slidePrev();
+                                    }
+                                }
+                            });
+                        }).catch(err => {
                             window.open(img.src, '_blank');
                         });
                     }
