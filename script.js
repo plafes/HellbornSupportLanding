@@ -82,20 +82,32 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Video slider with Keen-Slider
-    const videoSlider = new KeenSlider("#video-keen-slider", {
-        loop: true,
-        mode: "snap",
-        slides: {
-            perView: 1,
-            spacing: 15,
-        },
-        created(s) {
-            const prevButton = document.querySelector('.video-nav.prev');
-            const nextButton = document.querySelector('.video-nav.next');
-            
-            prevButton.addEventListener("click", () => s.prev());
-            nextButton.addEventListener("click", () => s.next());
-        },
+    let videoSlider;
+    
+    document.addEventListener("DOMContentLoaded", () => {
+        videoSlider = new KeenSlider("#video-keen-slider", {
+            loop: true,
+            mode: "snap",
+            slides: {
+                perView: 1,
+                spacing: 0,
+            },
+            dragStart: () => {
+                document.querySelector('.video-container').style.cursor = 'grabbing';
+            },
+            dragEnd: () => {
+                document.querySelector('.video-container').style.cursor = 'grab';
+            }
+        });
+
+        // Add navigation buttons functionality
+        const prevButton = document.querySelector('.video-nav.prev');
+        const nextButton = document.querySelector('.video-nav.next');
+        
+        if (prevButton && nextButton && videoSlider) {
+            prevButton.addEventListener("click", () => videoSlider.prev());
+            nextButton.addEventListener("click", () => videoSlider.next());
+        }
     });
     
 
