@@ -391,7 +391,7 @@ footer::before {
 
 .social-links a {
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 2rem;
     transition: color 0.3s, transform 0.3s ease;
 }
 
@@ -630,7 +630,7 @@ footer::before {
     }
 
     .social-links a {
-        font-size: 1.2rem;
+        font-size: 1.8rem;
     }
 
     /* Дополнительные улучшения для очень маленьких экранов */
