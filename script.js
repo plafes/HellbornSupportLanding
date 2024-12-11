@@ -101,8 +101,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Touch events for video slider
     const videoSlider = document.querySelector('.video-slider');
     let touchStartX = 0;
-
-    let touchStartX = 0;
     let touchEndX = 0;
 
     videoSlider.addEventListener('touchstart', function(e) {
@@ -141,6 +139,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     teppoLogo.addEventListener('click', (e) => {
         teppoPopup.classList.toggle('active');
+        popup.classList.remove('active');
+    });
 
     // Обработка анимации для социальных иконок на мобильных устройствах
     document.querySelectorAll('.social-links a').forEach(link => {
@@ -150,10 +150,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 this.classList.remove('touched');
             }, 700);
         });
-    });
-
-
-        popup.classList.remove('active');
     });
 
     document.addEventListener('click', (e) => {
