@@ -105,14 +105,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     videoSlider.addEventListener('touchstart', function(e) {
         touchStartX = e.touches[0].clientX;
-    }, { passive: true });
+    });
 
     videoSlider.addEventListener('touchmove', function(e) {
-        e.preventDefault();
-    }, { passive: false });
-
-    videoSlider.addEventListener('touchend', function(e) {
-        touchEndX = e.changedTouches[0].clientX;
+        touchEndX = e.touches[0].clientX;
         const swipeDistance = touchEndX - touchStartX;
         
         if (Math.abs(swipeDistance) > 50) {
@@ -121,6 +117,7 @@ document.addEventListener("DOMContentLoaded", function() {
             } else {
                 changeSlide(1);
             }
+            touchStartX = touchEndX;
         }
     });
 
