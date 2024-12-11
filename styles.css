@@ -281,15 +281,25 @@ header::before {
 .slider-image:fullscreen {
     object-fit: contain;
     background: black;
-    width: 100vw;
-    height: 100vh;
+    width: 100% !important;
+    height: 100% !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .slider-image:-webkit-full-screen {
     object-fit: contain;
     background: black;
-    width: 100vw;
-    height: 100vh;
+    width: 100% !important;
+    height: 100% !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .slider-image.active {
