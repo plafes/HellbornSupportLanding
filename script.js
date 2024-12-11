@@ -4,12 +4,20 @@ document.addEventListener("DOMContentLoaded", function() {
     const sliders = document.querySelectorAll('.content-slider, .video-container');
     
     setTimeout(() => {
-        document.querySelector('.paragraph-1').classList.add('section-animate');
-        document.querySelector('.content-slider').classList.add('section-animate');
+        paragraphs.forEach(p => {
+            p.classList.add('section-animate');
+        });
+        sliders.forEach(s => {
+            s.classList.add('section-animate');
+        });
         
         setTimeout(() => {
-            document.querySelector('.paragraph-1').classList.add('active');
-            document.querySelector('.content-slider').classList.add('active');
+            paragraphs.forEach(p => {
+                p.classList.add('active');
+            });
+            sliders.forEach(s => {
+                s.classList.add('active');
+            });
         }, 100);
     }, 100);
     // Initialize content slider
