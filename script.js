@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     paragraphs.forEach(p => p.classList.add('section-animate'));
     sliders.forEach(s => s.classList.add('section-animate'));
     // Initialize content slider
-    const contentSwiper = new Swiper('.content-slider.swiper-container', {
+    const contentSwiper = new Swiper('.content-slider', {
         effect: 'coverflow',
         grabCursor: true,
         centeredSlides: true,
@@ -19,9 +19,13 @@ document.addEventListener("DOMContentLoaded", function() {
             modifier: 1,
             slideShadows: true,
         },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
         navigation: {
-            nextEl: '.content-slider .swiper-button-next',
-            prevEl: '.content-slider .swiper-button-prev',
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
         },
         on: {
             click: function(swiper, event) {
