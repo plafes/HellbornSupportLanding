@@ -3,23 +3,18 @@ document.addEventListener("DOMContentLoaded", function() {
     const paragraphs = document.querySelectorAll('.paragraph-1, .paragraph-2, .paragraph-3');
     const sliders = document.querySelectorAll('.content-slider, .video-container');
     
-    setTimeout(() => {
-        paragraphs.forEach(p => {
-            p.classList.add('section-animate');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('section-animate', 'active');
+            } else {
+                entry.target.classList.remove('section-animate', 'active');
+            }
         });
-        sliders.forEach(s => {
-            s.classList.add('section-animate');
-        });
-        
-        setTimeout(() => {
-            paragraphs.forEach(p => {
-                p.classList.add('active');
-            });
-            sliders.forEach(s => {
-                s.classList.add('active');
-            });
-        }, 100);
-    }, 100);
+    }, { threshold: 0.1 });
+
+    paragraphs.forEach(p => observer.observe(p));
+    sliders.forEach(s => observer.observe(s));
     // Initialize content slider
     const contentSwiper = new Swiper('.content-slider', {
         effect: 'coverflow',
