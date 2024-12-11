@@ -65,7 +65,10 @@ function initializeContentSlider() {
     slider.addEventListener('touchstart', handleTouchStart);
     slider.addEventListener('touchend', handleTouchEnd);
 
-    setInterval(() => showSlide(currentSlide + 1), 5000);
+    // Only enable auto-slide for desktop
+    if (window.innerWidth > 768) {
+        setInterval(() => showSlide(currentSlide + 1), 5000);
+    }
 
     // Добавляем обработчик для открытия изображений в полный экран
     sliderImages.forEach(img => {
