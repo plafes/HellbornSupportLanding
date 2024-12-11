@@ -92,6 +92,28 @@ document.addEventListener("DOMContentLoaded", function() {
         slides[currentSlide].classList.add('active');
     }
 
+    // Touch events for video slider
+    const videoSlider = document.querySelector('.video-slider');
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    videoSlider.addEventListener('touchstart', function(e) {
+        touchStartX = e.touches[0].clientX;
+    });
+
+    videoSlider.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].clientX;
+        const swipeDistance = touchEndX - touchStartX;
+        
+        if (Math.abs(swipeDistance) > 50) {
+            if (swipeDistance > 0) {
+                changeSlide(-1); // Свайп вправо
+            } else {
+                changeSlide(1); // Свайп влево
+            }
+        }
+    });
+
     const logo = document.querySelector('.logo');
     const teppoLogo = document.querySelector('.teppo-logo');
     const popup = document.querySelector('.social-popup');
