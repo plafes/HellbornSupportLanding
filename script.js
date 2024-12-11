@@ -55,7 +55,9 @@ function initializeContentSlider() {
         const difference = currentX - touchStartX;
         const activeSlide = document.querySelector('.slider-image.active');
         
-        e.preventDefault();
+        if (Math.abs(difference) > 5) {
+            e.preventDefault();
+        }
         activeSlide.style.transform = `translateX(${difference}px)`;
     };
 
