@@ -42,7 +42,14 @@ function initializeContentSlider() {
 
     let touchMoved = false;
     
+    let sliderInterval;
+    
+    const startSliderInterval = () => {
+        sliderInterval = setInterval(() => showSlide(currentSlide + 1), 3000);
+    };
+
     const handleTouchStart = (e) => {
+        clearInterval(sliderInterval);
         touchStartX = e.touches[0].clientX;
         touchMoved = false;
         const activeSlide = document.querySelector('.slider-image.active');
@@ -81,6 +88,7 @@ function initializeContentSlider() {
 
         setTimeout(() => {
             activeSlide.style.transition = '';
+            startSliderInterval();
         }, 500);
     };
 
@@ -98,7 +106,7 @@ function initializeContentSlider() {
 
     // Only enable auto-slide for desktop
     if (window.innerWidth > 768) {
-        setInterval(() => showSlide(currentSlide + 1), 5000);
+        startSliderInterval();
     }
 
     // Добавляем обработчик для открытия изображений в полный экран
