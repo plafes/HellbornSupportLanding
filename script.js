@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function() {
     const paragraphs = document.querySelectorAll('.paragraph-1, .paragraph-2, .paragraph-3');
     const sliders = document.querySelectorAll('.content-slider, .video-container');
@@ -98,43 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
             nextButton.addEventListener("click", () => s.next());
         },
     });
-    const videoSlider = document.querySelector('.video-slider');
-    let touchStartX = 0;
-    let touchStartY = 0;
-    let touchMoveX = 0;
-    let touchMoveY = 0;
     
-    videoSlider.addEventListener('touchstart', function(e) {
-        touchStartX = e.touches[0].clientX;
-        touchStartY = e.touches[0].clientY;
-        touchMoveX = touchStartX;
-        touchMoveY = touchStartY;
-    }, { passive: false });
-
-    videoSlider.addEventListener('touchmove', function(e) {
-        touchMoveX = e.touches[0].clientX;
-        touchMoveY = e.touches[0].clientY;
-        
-        const deltaX = Math.abs(touchMoveX - touchStartX);
-        const deltaY = Math.abs(touchMoveY - touchStartY);
-        
-        if (deltaX > deltaY && deltaX > 10) {
-            e.preventDefault();
-        }
-    }, { passive: false });
-
-    videoSlider.addEventListener('touchend', function(e) {
-        const deltaX = touchMoveX - touchStartX;
-        const deltaY = Math.abs(touchMoveY - touchStartY);
-        
-        if (Math.abs(deltaX) > 50 && deltaY < 30) {
-            if (deltaX > 0) {
-                changeSlide(-1);
-            } else {
-                changeSlide(1);
-            }
-        }
-    });
 
     const logo = document.querySelector('.logo');
     const teppoLogo = document.querySelector('.teppo-logo');
