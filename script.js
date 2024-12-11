@@ -86,9 +86,9 @@ document.addEventListener("DOMContentLoaded", function() {
         loop: true,
         slidesPerView: 1,
         spaceBetween: 0,
-        grabCursor: true,
-        preventClicks: false,
-        preventClicksPropagation: false,
+        grabCursor: false,
+        preventClicks: true,
+        preventClicksPropagation: true,
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
@@ -97,18 +97,30 @@ document.addEventListener("DOMContentLoaded", function() {
             enabled: true,
         },
         touchRatio: 1,
-        threshold: 5,
-        touchStartPreventDefault: true,
+        threshold: 30,
+        touchStartPreventDefault: false,
         touchStartForcePreventDefault: false,
         touchMoveStopPropagation: true,
         resistance: true,
         resistanceRatio: 0.85,
         on: {
-            touchStart: function() {
-                document.body.style.overflow = 'hidden';
+            touchStart: function(swiper, event) {
+                swiper.touchStartX = event.touches[0].clientX;
+                swiper.touchStartY = event.touches[0].clientY;
             },
-            touchEnd: function() {
-                document.body.style.overflow = 'auto';
+            touchMove: function(swiper, event) {
+                if (!swiper.touchStartX) return;
+                
+                const diffX = event.touches[0].clientX - swiper.touchStartX;
+                const diffY = event.touches[0].clientY - swiper.touchStartY;
+                
+                if (Math.abs(diffX) > Math.abs(diffY)) {
+                    event.preventDefault();
+                }
+            },
+            touchEnd: function(swiper, event) {
+                swiper.touchStartX = null;
+                swiper.touchStartY = null;
             }
         }
     });
