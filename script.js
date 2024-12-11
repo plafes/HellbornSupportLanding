@@ -219,13 +219,33 @@ document.addEventListener("DOMContentLoaded", function() {
         videoSlides[currentVideo].classList.add('active');
     }
 
+    let videoTouchMoved = false;
+
     const handleVideoTouchStart = (e) => {
         videoTouchStartX = e.touches[0].clientX;
+        videoTouchMoved = false;
+        const activeSlide = document.querySelector('.video-slide.active');
+        activeSlide.style.transition = 'none';
+    };
+
+    const handleVideoTouchMove = (e) => {
+        videoTouchMoved = true;
+        const currentX = e.touches[0].clientX;
+        const difference = currentX - videoTouchStartX;
+        const activeSlide = document.querySelector('.video-slide.active');
+        
+        e.preventDefault();
+        activeSlide.style.transform = `translateX(${difference}px) scale(1)`;
     };
 
     const handleVideoTouchEnd = (e) => {
+        if (!videoTouchMoved) return;
+        
+        const activeSlide = document.querySelector('.video-slide.active');
+        activeSlide.style.transition = 'all 0.3s ease-out';
         videoTouchEndX = e.changedTouches[0].clientX;
         const difference = videoTouchStartX - videoTouchEndX;
+        
         const iframes = document.querySelectorAll('.video-slide iframe');
         if (Math.abs(difference) > 50 && !Array.from(iframes).some(iframe => iframe.src.includes('&autoplay=1'))) {
             if (difference > 0) {
@@ -233,10 +253,13 @@ document.addEventListener("DOMContentLoaded", function() {
             } else {
                 showVideo(currentVideo - 1);
             }
+        } else {
+            activeSlide.style.transform = 'scale(1)';
         }
     };
 
     videoContainer.addEventListener('touchstart', handleVideoTouchStart);
+    videoContainer.addEventListener('touchmove', handleVideoTouchMove, { passive: false });
     videoContainer.addEventListener('touchend', handleVideoTouchEnd);
 
     prevVideo.addEventListener('click', () => {
