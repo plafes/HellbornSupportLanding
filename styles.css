@@ -332,6 +332,10 @@ header::before {
     overflow: hidden;
     border-radius: 10px;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 100%;
 }
 
 .keen-slider__slide iframe {
