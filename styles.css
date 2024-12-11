@@ -293,8 +293,8 @@ header::before {
 .slider-image:fullscreen {
     object-fit: contain;
     background: black;
-    width: 100% !important;
-    height: 100% !important;
+    width: 100vw !important;
+    height: 100vh !important;
     position: fixed;
     top: 0;
     left: 0;
@@ -305,13 +305,20 @@ header::before {
 .slider-image:-webkit-full-screen {
     object-fit: contain;
     background: black;
-    width: 100% !important;
-    height: 100% !important;
+    width: 100vw !important;
+    height: 100vh !important;
     position: fixed;
     top: 0;
     left: 0;
     margin: 0;
     padding: 0;
+}
+
+@media (max-width: 768px) {
+    .slider-image:fullscreen,
+    .slider-image:-webkit-full-screen {
+        object-fit: cover;
+    }
 }
 
 .slider-image.active {

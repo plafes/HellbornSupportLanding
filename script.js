@@ -45,9 +45,12 @@ function initializeContentSlider() {
     };
 
     const handleTouchEnd = (e) => {
+        e.preventDefault();
         touchEndX = e.changedTouches[0].clientX;
         const difference = touchStartX - touchEndX;
-        if (Math.abs(difference) > 50) {
+        
+        // Проверяем, что слайдер не в полноэкранном режиме
+        if (!document.fullscreenElement && Math.abs(difference) > 50) {
             if (difference > 0) {
                 showSlide(currentSlide + 1);
             } else {
@@ -62,8 +65,9 @@ function initializeContentSlider() {
     }
 
     const slider = document.querySelector('.content-slider');
-    slider.addEventListener('touchstart', handleTouchStart);
-    slider.addEventListener('touchend', handleTouchEnd);
+    slider.addEventListener('touchstart', handleTouchStart, {passive: false});
+    slider.addEventListener('touchend', handleTouchEnd, {passive: false});
+    slider.addEventListener('touchmove', (e) => e.preventDefault(), {passive: false});
 
     // Only enable auto-slide for desktop
     if (window.innerWidth > 768) {
