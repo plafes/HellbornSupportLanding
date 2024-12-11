@@ -65,7 +65,7 @@ function initializeContentSlider() {
         if (!touchMoved) return;
         
         const activeSlide = document.querySelector('.slider-image.active');
-        activeSlide.style.transition = 'transform 0.3s ease-out';
+        activeSlide.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
         touchEndX = e.changedTouches[0].clientX;
         const difference = touchStartX - touchEndX;
         
@@ -78,6 +78,10 @@ function initializeContentSlider() {
         } else {
             activeSlide.style.transform = 'translateX(0)';
         }
+
+        setTimeout(() => {
+            activeSlide.style.transition = '';
+        }, 500);
     };
 
     if (prevButton && nextButton) {
