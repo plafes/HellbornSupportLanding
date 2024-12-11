@@ -40,18 +40,30 @@ function initializeContentSlider() {
         newSlide.classList.add('active');
     }
 
+    let touchMoved = false;
+    
     const handleTouchStart = (e) => {
         touchStartX = e.touches[0].clientX;
+        touchMoved = false;
+    };
+
+    const handleTouchMove = (e) => {
+        touchMoved = true;
+        const currentX = e.touches[0].clientX;
+        const difference = touchStartX - currentX;
+        
+        if (Math.abs(difference) > 5) {
+            e.preventDefault();
+        }
     };
 
     const handleTouchEnd = (e) => {
-        if (e.cancelable) {
-            e.preventDefault();
-        }
+        if (!touchMoved) return;
+        
         touchEndX = e.changedTouches[0].clientX;
         const difference = touchStartX - touchEndX;
         
-        if (Math.abs(difference) > 50) {
+        if (Math.abs(difference) > 30) {
             if (difference > 0) {
                 showSlide(currentSlide + 1);
             } else {
@@ -68,21 +80,9 @@ function initializeContentSlider() {
     const slider = document.querySelector('.content-slider');
     let isTouching = false;
     
-    slider.addEventListener('touchstart', (e) => {
-        isTouching = true;
-        handleTouchStart(e);
-    }, {passive: true});
-    
-    slider.addEventListener('touchend', (e) => {
-        isTouching = false;
-        handleTouchEnd(e);
-    }, {passive: false});
-    
-    slider.addEventListener('touchmove', (e) => {
-        if (isTouching && Math.abs(e.touches[0].clientX - touchStartX) > 5) {
-            e.preventDefault();
-        }
-    }, {passive: false});
+    slider.addEventListener('touchstart', handleTouchStart, {passive: true});
+    slider.addEventListener('touchmove', handleTouchMove, {passive: false});
+    slider.addEventListener('touchend', handleTouchEnd, {passive: true});
 
     // Only enable auto-slide for desktop
     if (window.innerWidth > 768) {
